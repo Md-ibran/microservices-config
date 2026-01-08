@@ -14,3 +14,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+    spring:
+  application:
+    name: api-gateway
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
