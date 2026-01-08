@@ -1,11 +1,10 @@
 server:
   port: 8080
 
-  spring:
-    application:
-      name: api-gateway
-
 spring:
+  application:
+    name: api-gateway   # 🔥 YE MISSING THA
+
   cloud:
     gateway:
       discovery:
@@ -14,15 +13,12 @@ spring:
           lower-case-service-id: true
 
       routes:
-        # USER SERVICE ROUTE
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
             - Path=/users/**
 
-        # ORDER SERVICE ROUTE
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/orders/**
-
