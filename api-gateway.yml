@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   cloud:
     gateway:
@@ -7,8 +10,15 @@ spring:
           lower-case-service-id: true
 
       routes:
+        # USER SERVICE ROUTE
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
             - Path=/users/**
+
+        # ORDER SERVICE ROUTE
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/orders/**
 
